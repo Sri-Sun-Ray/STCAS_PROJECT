@@ -1,36 +1,23 @@
-<div class="page-wrapper">
-  <div class="container">
-    <h2>Create Account</h2>
-    <form action="create_user.php" method="POST" onsubmit="return validateForm()">
-      
-      <div class="form-group">
-        <label for="employee-name">Employee Name:</label>
-        <input type="text" id="employee-name" name="employee_name" placeholder="Enter your name" required>
-      </div>
-
-      <div class="form-group">
-        <label for="phone-number">Phone Number:</label>
-        <input type="text" id="phone-number" name="phone_number" placeholder="Enter your phone number" required>
-      </div>
-
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" required>
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
-      </div>
-
-      <div class="buttons">
-        <button type="submit">Create Account</button>
-        <button type="button" onclick="window.location.href='view_users.php'">View Users List</button>
-      </div>
-    </form>
-
-    <div class="link">
-      <p>Already have an account? <a href="login.php">Login Here</a></p>
-    </div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Employee Name:</label>
+    <input formControlName="employee_name" required />
   </div>
-</div>
+
+  <div class="form-group">
+    <label>Phone Number:</label>
+    <input formControlName="phone_number" required />
+  </div>
+
+  <div class="form-group">
+    <label>Username:</label>
+    <input formControlName="username" required />
+  </div>
+
+  <div class="form-group">
+    <label>Password:</label>
+    <input type="password" formControlName="password" required />
+  </div>
+
+  <button type="submit">Create Account</button>
+</form>
