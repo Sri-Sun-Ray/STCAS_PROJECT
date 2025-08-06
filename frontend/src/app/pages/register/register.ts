@@ -24,11 +24,21 @@ export class Register {
     });
 
 }
- onSubmit() {
-    this.http.post('http://localhost:3000/api/register', this.form.value)
-      .subscribe({
-        next: () => alert('Registration successful'),
-        error: () => alert('Registration failed')
-      });
-  }
+onSubmit() {
+  console.log("Form submitted:", this.form.value); // Add this
+
+  this.http.post('http://localhost:3000/api/register', this.form.value)
+    .subscribe({
+      next: (res) => {
+        console.log('Registration success:', res);
+        alert('Registration successful');
+      },
+      error: (err) => {
+        console.error('Registration failed:', err);
+        alert('Registration failed');
+      }
+    });
+}
+
+
 }

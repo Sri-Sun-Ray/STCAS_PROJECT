@@ -7,7 +7,12 @@ const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 const PORT = 3000;
-app.use(cors());
+app.use(express.json());
+app.use(cors({
+  origin: 'http://localhost:4200', // Angular default port
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 app.use(bodyParser.json());
 
 app.use('/api', userRoutes);
