@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
 import { HttpClient ,HttpClientModule} from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -27,7 +28,7 @@ export class Register {
 onSubmit() {
   console.log("Form submitted:", this.form.value); // Add this
 
-  this.http.post('http://localhost:3000/api/register', this.form.value)
+  this.http.post('http://localhost:3000/api/users/register', this.form.value)
     .subscribe({
       next: (res) => {
         console.log('Registration success:', res);
